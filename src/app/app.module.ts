@@ -16,6 +16,9 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducers } from './app.reducer';
 
+// Charts
+import { ChartsModule } from 'ng2-charts';
+
 import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
@@ -28,6 +31,7 @@ import { DetalleComponent } from './ingreso-egreso/detalle/detalle.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { OrdenIngresoEgresoPipe } from './pipes/orden-ingreso-egreso.pipe';
 
 
 @NgModule({
@@ -41,7 +45,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     DetalleComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    OrdenIngresoEgresoPipe
   ],
   imports: [
     BrowserModule,
@@ -55,6 +60,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
