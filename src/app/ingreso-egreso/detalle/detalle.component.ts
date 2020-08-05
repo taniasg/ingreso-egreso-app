@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducer';
 import { IngresoEgreso } from '../../models/ingreso-egreso.model';
 import { Subscription } from 'rxjs';
 import { IngresoEgresoService } from '../../services/ingreso-egreso.service';
@@ -17,7 +16,7 @@ export class DetalleComponent implements OnInit, OnDestroy {
   ingresoSubs: Subscription;
 
   constructor(
-    private store: Store<AppState>,
+    private store: Store<AppStateWithIngreso>,
     private ingresoEgresoService: IngresoEgresoService
   ) { }
 
@@ -30,7 +29,7 @@ export class DetalleComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.ingresoSubs.unsubscribe()
+    this.ingresoSubs?.unsubscribe()
   }
 
   eliminar(uid: string) {
